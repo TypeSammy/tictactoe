@@ -1,0 +1,12 @@
+body {
+  background: peachpuff;
+}
+#main-game {
+  display: grid;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+}
