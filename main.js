@@ -29,14 +29,31 @@ let playersTurn = playerOne
 //--// game restarts
 
 
-
-
-
-
-
 // DOM elements
-const allCellElement = document.querySelector("#main-game")
-allCellElement.addEventListener("click", gameStart)
+const allCellElement = document.querySelectorAll(".cell")
+
+for (let i = 0; i < allCellElement.length; i++) {
+  let currentTurn = allCellElement[i]
+  allCellElement[i].addEventListener("click", function(event) {
+    console.log(allCellElement[i])
+
+    // function to switch between players based on even or odd operators
+    
+    // function to go through all the cells and return the values
+    // values get stored in an array?
+
+    // function to go to go through the returned cell values (array) and compare
+    // -- assume comparison starts true
+    // -- loop through and compare to:
+    // -- win scenario if playerOne(even) || playerTwo(odd) 
+    // -- ????
+    // -- else draw
+
+
+  })
+
+}
+
 
 function alternatePlayer() {
   //
@@ -46,3 +63,10 @@ function gameStart(event) {
 }
 
 
+let results = [
+  6, 1, 8,
+  9, 3, 7,
+  2, 4, 5
+]
+
+0,0,0,  0,0,0,  0,0,0
