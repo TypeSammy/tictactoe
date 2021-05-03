@@ -55,18 +55,18 @@ for (let i = 0; i < allCellElement.length; i++) {
 }
 
 
-function alternatePlayer() {
-  //
-}
-function gameStart(event) {
-  console.log(event.target)
-}
+// function alternatePlayer() {
+//   //
+// }
+// function gameStart(event) {
+//   console.log(event.target)
+// }
 
 
-let results = [
-  6, 1, 8,
-  9, 3, 7,
-  2, 4, 5
-]
+// let results = [
+//   6, 1, 8,
+//   9, 3, 7,
+//   2, 4, 5
+// ]
 
-0,0,0,  0,0,0,  0,0,0
+// 0,0,0,  0,0,0,  0,0,0
