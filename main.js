@@ -2,6 +2,7 @@
 // assign player turn into a varible
 const playerOne = "x"
 const playerTwo = "o"
+let turnCount = 0
 let playersTurn = playerOne
 
 // create a for loop with event listener inside for all the cells (9)
@@ -29,48 +30,73 @@ let playersTurn = playerOne
 //--// game restarts
 
 
-// DOM elements
+// putting all cells into a DOM element...
 const allCellElement = document.querySelectorAll(".cell")
 
-// looping through all cells
+// looping through all cells to add click event..
 for (let i = 0; i < allCellElement.length; i++) {
-  // assigning DOM elements to variables
+  // assigning DOM elements to variables...
   let currentTurn = allCellElement[i]
   let maxCells = allCellElement.length
-  let allCell = cellValues(document.querySelectorAll(".cell")
-  // let row1Element = document.querySelectorAll(".row1")
-  // let row2Element = document.querySelectorAll(".row1")
-  // let row3Element = document.querySelectorAll(".row3")
+  let row1Elements = document.querySelectorAll(".row1")
+  let row2Elements = document.querySelectorAll(".row2")
+  let row3Elements = document.querySelectorAll(".row3")
 
-  // event listener for all cells
-  allCellElement[i].addEventListener("click", function (event) {
 
-    // altnerates between X and O - want to change it to an even / odd operator but not sure how..
-    event.target.innerText = playersTurn
-    if (playersTurn === playerOne) {
-      playersTurn = playerTwo
-    } else {
-      playersTurn = playerOne
-    }
 
-    // function to get ANY value of the cells
-    function cellValues(rowElements) {
-      let allValues = []
+  // Event listener added for all cells + game functions
+  allCellElement[i].addEventListener("click", gameStart)
 
-      for (let i = 0; i < rowElements.length; i++) {
-        allValues.push(rowElements[i].textContent)
+    function gameStart(event) {
+      // Switch between players + add to turn count...
+      event.target.innerText = playersTurn
+      if (turnCount % 2 === 0) {
+        playersTurn = playerTwo
+        turnCount++
+        allCellElement[i].removeEventListener("click", gameStart)
+      } else {
+        turnCount++
+        playersTurn = playerOne
+        allCellElement[i].removeEventListener("click", gameStart)
       }
-      return allValues
+      if (turnCount === maxCells) {
+        console.log("it's a tie")
+      }
+
+
+
+
+      // function to the values from rows...
+      function cellValues(rowElements) {
+        let allValues = []
+
+        for (let i = 0; i < rowElements.length; i++) {
+          allValues.push(rowElements[i].textContent)
+        }
+        return allValues
+      }
+      // storing row values...
+      let allRowValues = cellValues(allCellElement)
+      let row1Values = cellValues(row1Elements)
+      let row2Values = cellValues(row2Elements)
+      let row3Values = cellValues(row3Elements)
+
     }
-
-    // let row1Values = cellValues(row1Element)
-    // let row2Values = cellValues(row2Element)
-    // let row3Values = cellValues(row3Element)
-    let allRowValues = cellValues(allCell)
-  })
+  }
 
 
 
+
+/*
+for (let i = 0; i < test.length; i++) {
+let firstNum = test[0]
+if (firstNum === test[i].length) {
+console.log('true')
+} else {
+console.log('false')
+}
+}
+*/
 
   // function to switch between players based on even or odd operators
 
@@ -84,15 +110,15 @@ for (let i = 0; i < allCellElement.length; i++) {
   // -- ????
   // -- else draw
 
-
-}
+// in order to win:
+// "0","0","0",  "0","0","0",  "0","0","0"
 
 
 
 // let results = [
-//   6, 1, 8,
-//   9, 3, 7,
-//   2, 4, 5
+//   0, 0, 0,
+//   0, 0, 0,
+//   0, 0, 0
 // ]
 
 // 0,0,0,  0,0,0,  0,0,0
