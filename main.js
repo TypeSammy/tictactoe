@@ -1,7 +1,7 @@
 // assign playerOne "X" and playerTwo "O"
 // assign player turn into a varible
-const playerOne = "X"
-const playerTwo = "O"
+const playerOne = "x"
+const playerTwo = "o"
 let playersTurn = playerOne
 
 // create a for loop with event listener inside for all the cells (9)
@@ -32,35 +32,61 @@ let playersTurn = playerOne
 // DOM elements
 const allCellElement = document.querySelectorAll(".cell")
 
+// looping through all cells
 for (let i = 0; i < allCellElement.length; i++) {
+  // assigning DOM elements to variables
   let currentTurn = allCellElement[i]
-  allCellElement[i].addEventListener("click", function(event) {
-    console.log(allCellElement[i])
+  let maxCells = allCellElement.length
+  let allCell = cellValues(document.querySelectorAll(".cell")
+  // let row1Element = document.querySelectorAll(".row1")
+  // let row2Element = document.querySelectorAll(".row1")
+  // let row3Element = document.querySelectorAll(".row3")
 
-    // function to switch between players based on even or odd operators
-    
-    // function to go through all the cells and return the values
-    // values get stored in an array?
+  // event listener for all cells
+  allCellElement[i].addEventListener("click", function (event) {
 
-    // function to go to go through the returned cell values (array) and compare
-    // -- assume comparison starts true
-    // -- loop through and compare to:
-    // -- win scenario if playerOne(even) || playerTwo(odd) 
-    // -- ????
-    // -- else draw
+    // altnerates between X and O - want to change it to an even / odd operator but not sure how..
+    event.target.innerText = playersTurn
+    if (playersTurn === playerOne) {
+      playersTurn = playerTwo
+    } else {
+      playersTurn = playerOne
+    }
 
+    // function to get ANY value of the cells
+    function cellValues(rowElements) {
+      let allValues = []
 
+      for (let i = 0; i < rowElements.length; i++) {
+        allValues.push(rowElements[i].textContent)
+      }
+      return allValues
+    }
+
+    // let row1Values = cellValues(row1Element)
+    // let row2Values = cellValues(row2Element)
+    // let row3Values = cellValues(row3Element)
+    let allRowValues = cellValues(allCell)
   })
+
+
+
+
+  // function to switch between players based on even or odd operators
+
+  // function to go through all the cells and return the values
+  // values get stored in an array?
+
+  // function to go to go through the returned cell values (array) and compare
+  // -- assume comparison starts true
+  // -- loop through and compare to:
+  // -- win scenario if playerOne(even) || playerTwo(odd) 
+  // -- ????
+  // -- else draw
+
 
 }
 
-
-// function alternatePlayer() {
-//   //
-// }
-// function gameStart(event) {
-//   console.log(event.target)
-// }
 
 
 // let results = [
