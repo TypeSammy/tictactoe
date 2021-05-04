@@ -5,30 +5,6 @@ const playerTwo = "o"
 let turnCount = 0
 let playersTurn = playerOne
 
-// create a for loop with event listener inside for all the cells (9)
-// when cell is clicked assign a value (playersTurn) "X"
-// when assigned value is % 2 == 0 then value (playersTurn) turns to "O"
-
-// game ends when (1/2):
-//-- WIN condition is met. Win condition is when the SAME VALUE (X or O) is recorded on:
-//--// all of row 1 || all of row 2 || all of row 3
-//--// all of column 1 || all of column 2 || column of row 3
-//--// row1 c1 || row2 c2 || row3 c3 is the same
-//--// row1 c3 || row2 c2 || row3 c1 is the same
-//----- (8 different scenarios to win)
-//--// compare all rows, columns and 2 diagonal results
-//--// if one of them returns true
-//--// find the value of it (X or O)
-//--// display the player who won
-//--// game restarts
-
-// game ends when (2/2):
-//-- TIE no one won
-//--// if playerOne value reaches 5 (5 clicks - even)
-//--// and playerTwo value reaches 4 (4 clicks - odd)
-//--// game displays DRAW
-//--// game restarts
-
 
 // putting all cells into a DOM element...
 const allCellElement = document.querySelectorAll(".cell")
@@ -46,43 +22,135 @@ for (let i = 0; i < allCellElement.length; i++) {
 
   // Event listener added for all cells + game functions
   allCellElement[i].addEventListener("click", gameStart)
-
-    function gameStart(event) {
-      // Switch between players + add to turn count...
-      event.target.innerText = playersTurn
-      if (turnCount % 2 === 0) {
-        playersTurn = playerTwo
-        turnCount++
-        allCellElement[i].removeEventListener("click", gameStart)
-      } else {
-        turnCount++
-        playersTurn = playerOne
-        allCellElement[i].removeEventListener("click", gameStart)
-      }
-      if (turnCount === maxCells) {
-        console.log("it's a tie")
-      }
-
-
-
-
-      // function to the values from rows...
-      function cellValues(rowElements) {
-        let allValues = []
-
-        for (let i = 0; i < rowElements.length; i++) {
-          allValues.push(rowElements[i].textContent)
-        }
-        return allValues
-      }
-      // storing row values...
-      let allRowValues = cellValues(allCellElement)
-      let row1Values = cellValues(row1Elements)
-      let row2Values = cellValues(row2Elements)
-      let row3Values = cellValues(row3Elements)
-
+  function gameStart(event) {
+    // Switch between players + add to turn count...
+    event.target.innerText = playersTurn
+    if (turnCount % 2 === 0) {
+      playersTurn = playerTwo
+      turnCount++
+      allCellElement[i].removeEventListener("click", gameStart)
+    } else {
+      turnCount++
+      playersTurn = playerOne
+      allCellElement[i].removeEventListener("click", gameStart)
     }
+
+
+
+    // function to get the values from rows
+    function cellValues(rowElements) {
+      let allValues = []
+      for (let i = 0; i < rowElements.length; i++) {
+        allValues.push(rowElements[i].textContent)
+      }
+      return allValues
+    }
+    // storing row values
+    let allRowValues = cellValues(allCellElement)
+    let row1Values = cellValues(row1Elements)
+    let row2Values = cellValues(row2Elements)
+    let row3Values = cellValues(row3Elements)
+
+ 
+
+
+    // function to return true if win condition has been met
+    function winCondition() {
+      // initial win condition variable
+      let winConditionMet = false
+
+      // all row check with boolean values
+      let row1Check = compareRows(row1Values)
+      let row2Check = compareRows(row2Values)
+      let row3Check = compareRows(row3Values)
+      let diagonalLeftCheck = false
+      let diagonalRightCheck = false
+      let column1Check = compareColumns(allRowValues, 0)
+      let column2Check = compareColumns(allRowValues, 1)
+      let column3check = compareColumns(allRowValues, 2)
+
+
+      // function to return boolean rows
+      function compareRows(array) {
+        if (array[0] != "") {
+          if (array[0] === array[1]) {
+            if (array[1] === array[2]) {
+              return true
+            }
+          }
+        } else {
+          return false
+        }
+      }
+
+      // function to return boolean columns
+      function compareColumns(array, index) {
+        let every3rd = []
+        // loop through every 3rd to and return into a new array
+        for (let i = 0; i < array.length; i++) {
+          if (i % 3 === 0) {
+            every3rd.push(array[i])
+          }
+        }
+        // checks if every item in new array is the same
+        if (every3rd[0] != "") {
+          if (every3rd[0] === every3rd[1]) {
+            if (every3rd[1] === every3rd[2]) {
+              return true
+            }
+          } else {
+            return false
+          }
+        }
+      }
+
+      // if statement to compare left diagonal values
+      if (allRowValues[0] != "") {
+        if (allRowValues[0] === allRowValues[4]) {
+          if (allRowValues[4] === allRowValues[8]) {
+            diagonalLeftCheck = true
+          }
+        } else {
+          diagonalLeftCheck = false
+        }
+      }
+
+      // if statement to compare right diagonal values
+      if (allRowValues[2] != "") {
+        if (allRowValues[2] === allRowValues[4]) {
+          if (allRowValues[4] === allRowValues[6]) {
+            diagonalRightCheck = true
+          }
+        } else {
+          diagonalRightCheck = false
+        }
+      }
+
+  
+      // checking if all rows, columns and diagonal values are true/false
+      if (row1Check
+        || row2Check
+        || row3Check
+        || diagonalLeftCheck
+        || diagonalRightCheck
+        || column1Check
+        || column2Check
+        || column3check) {
+        winConditionMet = true
+      }
+      return winConditionMet
+    }
+
+    let winner = winCondition()
+    if (winner === true) {
+      console.log("winner")
+    } else if (turnCount === maxCells) {
+      console.log("No winner")
+    }
+
+
   }
+}
 
 
 
@@ -111,14 +179,14 @@ console.log('false')
   // -- else draw
 
 // in order to win:
-// "0","0","0",  "0","0","0",  "0","0","0"
+// "0","1","2",  "3","4","5",  "6","7","8"
 
 
 
 // let results = [
-//   0, 0, 0,
-//   0, 0, 0,
-//   0, 0, 0
+//   0, 1, 2,
+//   3, 4, 5,
+//   6, 7, 8
 // ]
 
 // 0,0,0,  0,0,0,  0,0,0
