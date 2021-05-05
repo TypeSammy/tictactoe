@@ -11,6 +11,9 @@ body {
 h1 {
   font-size: 45pt;
 }
+h2 {
+  margin-bottom: 50px;
+}
 #main-game {
   display: grid;
   grid-template-columns: 130px 130px 130px;

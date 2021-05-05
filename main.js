@@ -8,12 +8,14 @@ let playersTurn = playerOne
 
 // putting all cells into a DOM element...
 const allCellElement = document.querySelectorAll(".cell")
+const newGameBtn = document.getElementById("newGameBtn")
+const playersTurnMessage = document.querySelector("h2")
 
 // looping through all cells to add click event..
 for (let i = 0; i < allCellElement.length; i++) {
   // assigning DOM elements to variables...
   let currentTurn = allCellElement[i]
-  let maxCells = allCellElement.length
+  const maxCells = allCellElement.length
   let row1Elements = document.querySelectorAll(".row1")
   let row2Elements = document.querySelectorAll(".row2")
   let row3Elements = document.querySelectorAll(".row3")
@@ -24,17 +26,18 @@ for (let i = 0; i < allCellElement.length; i++) {
   allCellElement[i].addEventListener("click", gameStart)
   function gameStart(event) {
     // Switch between players + add to turn count...
-    event.target.innerText = playersTurn
+    event.target.textContent = playersTurn
     if (turnCount % 2 === 0) {
+      playersTurnMessage.textContent = "X's turn"
       playersTurn = playerTwo
       turnCount++
-      allCellElement[i].removeEventListener("click", gameStart)
+      // allCellElement[i].removeEventListener("click", gameStart)
     } else {
+      playersTurnMessage.textContent = "O's turn"
       turnCount++
       playersTurn = playerOne
-      allCellElement[i].removeEventListener("click", gameStart)
+      // allCellElement[i].removeEventListener("click", gameStart)
     }
-
 
 
     // function to get the values from rows
@@ -51,7 +54,7 @@ for (let i = 0; i < allCellElement.length; i++) {
     let row2Values = cellValues(row2Elements)
     let row3Values = cellValues(row3Elements)
 
- 
+
 
 
     // function to return true if win condition has been met
@@ -126,7 +129,7 @@ for (let i = 0; i < allCellElement.length; i++) {
         }
       }
 
-  
+
       // checking if all rows, columns and diagonal values are true/false
       if (row1Check
         || row2Check
@@ -142,15 +145,34 @@ for (let i = 0; i < allCellElement.length; i++) {
     }
 
     let winner = winCondition()
-    if (winner === true) {
-      console.log("winner")
-    } else if (turnCount === maxCells) {
-      console.log("No winner")
+
+    for (let i = 0; i < maxCells; i++) {
+      if (winner === true) {
+        reset()
+      } else if (turnCount === maxCells) {
+        console.log("No winner")
+        reset()
+      }
+    }
+
+    newGameBtn.addEventListener("click", reset)
+    function reset() {
+      for (let i = 0; i < allCellElement.length; i++) {
+        allCellElement[i].textContent = ""
+        turnCount = 0
+        playersTurn = playerOne
+      }
     }
 
 
+
+
+
   }
+
+
 }
+
 
 
 
