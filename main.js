@@ -9,7 +9,23 @@ let playersTurn = playerOne
 // putting all cells into a DOM element...
 const allCellElement = document.querySelectorAll(".cell")
 const newGameBtn = document.getElementById("newGameBtn")
+const ggBtn = document.getElementById("closePopupBtn")
 let playersTurnMessage = document.querySelector("h2")
+
+
+
+let gameActiveInfo = document.querySelector(".gameActiveInfo")
+
+let popup = document.querySelector("#popup")
+
+let popupText = document.querySelector("#popupText")
+
+let leftBadge = document.querySelector(".playerOneBadge")
+
+let rightBadge = document.querySelector(".playerTwoBadge")
+
+
+
 
 
 // looping through all cells to add click event..
@@ -153,24 +169,42 @@ for (let i = 0; i < allCellElement.length; i++) {
     let winner = winCondition()
 
     for (let i = 0; i < maxCells; i++) {
+      rightBadge.style.visibility = "hidden"
+      leftBadge.style.visibility = "hidden"
       if (winner === true) {
-        displayAlert = true
+        if (playersTurn === playerOne) {
+          popupText.textContent = "Player two wins!"
+          popup.style.visibility = "visible"
+          gameActiveInfo.style.visibility = "hidden"
+        } else if (playersTurn === playerTwo) {
+          popupText.textContent = "Player one wins!"
+          popup.style.visibility = "visible"
+          gameActiveInfo.style.visibility = "hidden"
+        }
       } else if (turnCount === maxCells) {
-        displayAlert = true
+        popupText.textContent = "It's a draw!"
+        popup.style.visibility = "visible"
+        gameActiveInfo.style.visibility = "hidden"
       }
     }
 
-    let displayAlert = false
-
-    if (displayAlert) {
-      
-    }
 
 
+    // if (winner === true) {
+    //   popupText.textContent = playersTurn + " wins!"
+    //   popup.style.visibility = "visible"
+    //   gameActiveInfo.style.visibility = "hidden"
+    // } else if (turnCount === maxCells) {
+    //   popupText.style.visibility = "visible"
+    //   gameActiveInfo.style.visibility = "hidden"
+    // }
 
 
 
 
+
+
+    ggBtn.addEventListener("click", reset)
     newGameBtn.addEventListener("click", reset)
     function reset() {
       for (let i = 0; i < allCellElement.length; i++) {
@@ -179,8 +213,10 @@ for (let i = 0; i < allCellElement.length; i++) {
         playersTurn = playerOne
 
         playersTurnMessage.textContent = "Player one's turn"
-        document.querySelector(".playerOneBadge").style.visibility = "visible"
-        document.querySelector(".playerTwoBadge").style.visibility = "hidden"
+        leftBadge.style.visibility = "visible"
+        rightBadge.style.visibility = "hidden"
+        popup.style.visibility = "hidden"
+        gameActiveInfo.style.visibility = "visible"
       }
     }
 
