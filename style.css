@@ -8,14 +8,19 @@ body {
   margin: 0 auto;
   width: 450px;
 }
+header {
+  display: grid;
+  grid-template-rows: 130px 160px;
+  margin-bottom: 10px;
+  justify-items: center;
+}
 h1 {
   font-size: 45pt;
 }
 #players {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 50px;
+  margin-left: 20px;
 }
 strong {
   color: rgb(88,85,77);
@@ -33,6 +38,44 @@ h3 {
  font-weight: 400;
  font-size: 14px;
 }
+#displaySection {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 120px;
+}
+#popup {
+  opacity: 0;
+  color: rgb(88,85,77);
+  background-color: rgb(217,216,214);
+  border-radius: 4px;
+  display: inline-grid;
+  justify-content: center;
+  width: 80%;
+  padding: 3%;
+  font-size: 20pt;
+  font-weight: 600;
+}
+#closePopupBtn {
+  color: rgb(217,216,214);
+  background-color: rgb(88,85,77);
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+#gameActiveInfo {
+  opacity: 1;
+  position: relative;
+  top: -124px;
+  height: fit-content;
+  padding: 10px 10px;
+}
+
 #playerOne {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -51,29 +94,33 @@ h3 {
 }
 .playerOneBadge {
   visibility: visible;
-  position: absolute;
-  top: 15%;
-  right: 59.6%;
+  position: relative;
+  right: 40%;
+  height: fit-content;
   padding: 10px 10px;
   border-radius: 100%;
   background: rgb(250,73,0);
 }
 .playerTwoBadge {
   visibility: hidden;
-  position: absolute;
-  top: 15%;
-  right: 49%;
+  position: relative;
+  right: 41%;
+  height: fit-content;
   padding: 10px 10px;
   border-radius: 100%;
   background: rgb(250,73,0);
 }
+
+
+
+
 #main-game {
   display: grid;
   grid-template-columns: 130px 130px 130px;
   grid-template-rows: 130px 130px 130px;
   justify-content: center;
 }
-div {
+main div {
   width: 100%;
   height: 100%;
   border: 7px solid rgb(88,85,77);

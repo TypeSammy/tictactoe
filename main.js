@@ -154,12 +154,22 @@ for (let i = 0; i < allCellElement.length; i++) {
 
     for (let i = 0; i < maxCells; i++) {
       if (winner === true) {
-        reset()
+        displayAlert = true
       } else if (turnCount === maxCells) {
-        console.log("No winner")
-        reset()
+        displayAlert = true
       }
     }
+
+    let displayAlert = false
+
+    if (displayAlert) {
+      
+    }
+
+
+
+
+
 
     newGameBtn.addEventListener("click", reset)
     function reset() {
@@ -167,6 +177,10 @@ for (let i = 0; i < allCellElement.length; i++) {
         allCellElement[i].textContent = ""
         turnCount = 0
         playersTurn = playerOne
+
+        playersTurnMessage.textContent = "Player one's turn"
+        document.querySelector(".playerOneBadge").style.visibility = "visible"
+        document.querySelector(".playerTwoBadge").style.visibility = "hidden"
       }
     }
 
