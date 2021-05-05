@@ -11,8 +11,56 @@ body {
 h1 {
   font-size: 45pt;
 }
-h2 {
+#players {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 50px;
+}
+strong {
+  color: rgb(88,85,77);
+  font-size: 23px;
+  vertical-align: -3px;
+  padding-right: 5px;
+}
+h2 {
+ color: rgb(88,85,77);
+ font-weight: 400;
+ font-size: 14px;
+}
+#playerOne {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: rgb(217,216,214);
+  padding: 10px;
+  padding-left: 37px;
+  padding-right: 37px;
+}
+#playerTwo {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: rgb(217,216,214);
+  padding: 10px;
+  padding-left: 37px;
+  padding-right: 37px;
+}
+.playerOneBadge {
+  visibility: visible;
+  position: absolute;
+  top: 12.5%;
+  right: 59.6%;
+  padding: 10px 10px;
+  border-radius: 100%;
+  background: rgb(250,73,0);
+}
+.playerTwoBadge {
+  visibility: hidden;
+  position: absolute;
+  top: 12.5%;
+  right: 49%;
+  padding: 10px 10px;
+  border-radius: 100%;
+  background: rgb(250,73,0);
 }
 #main-game {
   display: grid;
@@ -23,10 +71,31 @@ h2 {
 div {
   width: 100%;
   height: 100%;
-  border: 3px solid rgb(88,85,77);
-  font-size: 90px;
+  border: 7px solid rgb(88,85,77);
+  font-size: 70px;
+  vertical-align: 4px;
   color: rgb(217,195,176);
+  line-height: 1.7;
 }
+div:nth-child(1), div:nth-child(2), div:nth-child(3) {
+  border-top: var(--border);
+}
+div:nth-child(1), div:nth-child(4), div:nth-child(7) {
+  border-left: var(--border);
+}
+div:nth-child(3), div:nth-child(6), div:nth-child(9) {
+  border-right: var(--border);
+}
+div:nth-child(2), div:nth-child(5), div:nth-child(8) {
+  border-right: var(--border);
+}
+div:nth-child(4), div:nth-child(5), div:nth-child(6) {
+  border-bottom: var(--border);
+}
+div:nth-child(7), div:nth-child(8), div:nth-child(9) {
+  border-bottom: var(--border);
+}
+
 button {
   margin-top: 60px;
   margin-bottom: 55px;

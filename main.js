@@ -11,6 +11,7 @@ const allCellElement = document.querySelectorAll(".cell")
 const newGameBtn = document.getElementById("newGameBtn")
 const playersTurnMessage = document.querySelector("h2")
 
+
 // looping through all cells to add click event..
 for (let i = 0; i < allCellElement.length; i++) {
   // assigning DOM elements to variables...
@@ -28,15 +29,19 @@ for (let i = 0; i < allCellElement.length; i++) {
     // Switch between players + add to turn count...
     event.target.textContent = playersTurn
     if (turnCount % 2 === 0) {
-      playersTurnMessage.textContent = "X's turn"
+      document.querySelector(".playerOneBadge").style.visibility = "hidden"
+      document.querySelector(".playerTwoBadge").style.visibility = "visible"
+
       playersTurn = playerTwo
       turnCount++
-      // allCellElement[i].removeEventListener("click", gameStart)
     } else {
-      playersTurnMessage.textContent = "O's turn"
+
+      document.querySelector(".playerOneBadge").style.visibility = "visible"
+      document.querySelector(".playerTwoBadge").style.visibility = "hidden"
+
+
       turnCount++
       playersTurn = playerOne
-      // allCellElement[i].removeEventListener("click", gameStart)
     }
 
 
