@@ -31,7 +31,7 @@ strong {
 h2 {
   color: rgb(217,216,214);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
  }
 h3 {
  color: rgb(88,85,77);
@@ -112,10 +112,6 @@ h3 {
   border-radius: 100%;
   background: rgb(250,73,0);
 }
-
-
-
-
 
 #main-game {
   display: grid;

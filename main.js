@@ -27,11 +27,14 @@ for (let i = 0; i < allCellElement.length; i++) {
   const row1Elements = document.querySelectorAll(".row1")
   const row2Elements = document.querySelectorAll(".row2")
   const row3Elements = document.querySelectorAll(".row3")
+  const column1Elements = document.querySelectorAll(".column1")
+  const column2Elements = document.querySelectorAll(".column2")
+  const column3Elements = document.querySelectorAll(".column3")
 
 
 
   // Event listener added for all cells + game functions
-  allCellElement[i].addEventListener("click", gameStart, {once: true})
+  allCellElement[i].addEventListener("click", gameStart, { once: true })
 
   function gameStart(event) {
     // Switch between players + add to turn count...
@@ -56,7 +59,6 @@ for (let i = 0; i < allCellElement.length; i++) {
 
 
 
-
     // function to get the values from rows
     function cellValues(rowElements) {
       let allValues = []
@@ -65,11 +67,19 @@ for (let i = 0; i < allCellElement.length; i++) {
       }
       return allValues
     }
-    // storing row values
+    // storing values of all cells, rows and columns
     let allRowValues = cellValues(allCellElement)
     let row1Values = cellValues(row1Elements)
     let row2Values = cellValues(row2Elements)
     let row3Values = cellValues(row3Elements)
+    let column1Values = cellValues(column1Elements)
+    let column2Values = cellValues(column2Elements)
+    let column3Values = cellValues(column3Elements)
+
+
+
+
+
 
     // function to return true if win condition has been met
     function winCondition() {
@@ -77,21 +87,21 @@ for (let i = 0; i < allCellElement.length; i++) {
       let winConditionMet = false
 
       // all row check with boolean values
-      let row1Check = compareRows(row1Values)
-      let row2Check = compareRows(row2Values)
-      let row3Check = compareRows(row3Values)
-      let column1Check = compareColumns(allRowValues, 0)
-      let column2Check = compareColumns(allRowValues, 1)
-      let column3check = compareColumns(allRowValues, 2)
+      let row1Check = compare(row1Values)
+      let row2Check = compare(row2Values)
+      let row3Check = compare(row3Values)
+      let column1Check = compare(column1Values)
+      let column2Check = compare(column2Values)
+      let column3check = compare(column3Values)
       let diagonalLeftCheck = false
       let diagonalRightCheck = false
 
 
       // function to return boolean ROWS
-      function compareRows(array) {
-        if (array[0] != "") {
-          if (array[0] === array[1]) {
-            if (array[1] === array[2]) {
+      function compare(cellValues) {
+        if (cellValues[0] != "") {
+          if (cellValues[0] === cellValues[1]) {
+            if (cellValues[1] === cellValues[2]) {
               return true
             }
           }
@@ -100,26 +110,6 @@ for (let i = 0; i < allCellElement.length; i++) {
         }
       }
 
-      // function to return boolean COLUMNS
-      function compareColumns(array, index) {
-        let every3rd = []
-        // loop through every 3rd to and return into a new array
-        for (let i = 0; i < array.length; i++) {
-          if (i % 3 === 0) {
-            every3rd.push(array[i])
-          }
-        }
-        // checks if every item in new array is the same
-        if (every3rd[0] != "") {
-          if (every3rd[0] === every3rd[1]) {
-            if (every3rd[1] === every3rd[2]) {
-              return true
-            }
-          } else {
-            return false
-          }
-        }
-      }
 
       // if statement to compare left diagonal values
       if (allRowValues[0] != "") {
@@ -154,8 +144,17 @@ for (let i = 0; i < allCellElement.length; i++) {
         || column3check) {
         winConditionMet = true
       }
+
       return winConditionMet
+
+
     }
+
+
+
+
+
+
 
     let winner = winCondition()
 
@@ -164,18 +163,15 @@ for (let i = 0; i < allCellElement.length; i++) {
       if (winner === true) {
         rightBadge.style.visibility = "hidden"
         leftBadge.style.visibility = "hidden"
-
         if (playersTurn === playerOne) {
           popupText.textContent = "Player two wins!"
           popup.style.visibility = "visible"
           gameActiveInfo.style.visibility = "hidden"
-
         } else if (playersTurn === playerTwo) {
           popupText.textContent = "Player one wins!"
           popup.style.visibility = "visible"
           gameActiveInfo.style.visibility = "hidden"
         }
-
       } else if (turnCount === maxCells) {
         rightBadge.style.visibility = "hidden"
         leftBadge.style.visibility = "hidden"
@@ -185,19 +181,7 @@ for (let i = 0; i < allCellElement.length; i++) {
       }
     }
 
-    console.log(allRowValues)
-
-    // if (winner === true) {
-    //   popupText.textContent = playersTurn + " wins!"
-    //   popup.style.visibility = "visible"
-    //   gameActiveInfo.style.visibility = "hidden"
-    // } else if (turnCount === maxCells) {
-    //   popupText.style.visibility = "visible"
-    //   gameActiveInfo.style.visibility = "hidden"
-    // }
-
-
-
+    // game resets via two buttons and re-adds event listener
     ggBtn.addEventListener("click", reset)
     newGameBtn.addEventListener("click", reset)
     function reset() {
@@ -211,12 +195,16 @@ for (let i = 0; i < allCellElement.length; i++) {
         popup.style.visibility = "hidden"
         gameActiveInfo.style.visibility = "visible"
       }
-      allCellElement[i].addEventListener("click", gameStart, {once: true})
+      allCellElement[i].addEventListener("click", gameStart, { once: true })
     }
+
+
+
 
 
   }
 }
+
 
 
 
