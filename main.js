@@ -32,7 +32,7 @@ for (let i = 0; i < allCellElement.length; i++) {
 
 
   // Event listener added for all cells + game functions
-  allCellElement[i].addEventListener("click", gameStart, { once: true })
+  allCellElement[i].addEventListener("click", gameStart, {once: true})
 
   function gameStart(event) {
     // Switch between players + add to turn count...
@@ -170,7 +170,7 @@ for (let i = 0; i < allCellElement.length; i++) {
       leftBadge.style.visibility = "hidden"
 
       for (let i = 0; i < allCellElement.length; i++) {
-      return allCellElement[i].removeEventListener("click", gameStart, { once: true })
+      return allCellElement[i].removeEventListener("click", gameStart, {once: true})
       }
       
     }
@@ -222,7 +222,7 @@ for (let i = 0; i < allCellElement.length; i++) {
         popup.style.visibility = "hidden"
         gameActiveInfo.style.visibility = "visible"
       }
-      allCellElement[i].addEventListener("click", gameStart, { once: true })
+      allCellElement[i].addEventListener("click", gameStart, {once: true})
     }
 
   }

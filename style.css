@@ -49,6 +49,11 @@ h3 {
   padding: 3%;
   font-size: 20pt;
   font-weight: 600;
+  padding-bottom: 35px;
+}
+#popupText {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 #closePopupBtn {
   color: rgb(216,216,216);
@@ -62,6 +67,7 @@ h3 {
   font-size: 20px;
   margin: 0 auto;
   width: 150px;
+  height: 50px;
 }
 #displaySection {
   margin-bottom: 50px;
@@ -153,7 +159,7 @@ button {
   margin-bottom: 55px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
-  font-size: 15pt;
+  font-size: 17pt;
   color: rgb(86,86,77);
   background-color: rgb(216,216,216);
   padding: 13px;
@@ -162,6 +168,8 @@ button {
   appearance: none;
   border-style: none;
   border-radius: 4px;
+  width: 210px;
+  height: 60px;
 }
 footer {
   text-align: left;

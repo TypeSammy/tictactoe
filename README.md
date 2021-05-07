@@ -1,34 +1,49 @@
 # Tic Tac Toe - JavaScript
 A simple two player game on a 3x3 board.
 
-***
+
 
 ## 📸 Screenshot
-Closely resembles the original mockup
+Closely resembles the original mockup.
 
-![](/image/tictactoe/tictactoe-screenshot.jpg)
+![](https://github.com/TypeSammy/tictactoe/blob/main/tictactoe-screenshot.jpg)
 
-***
+
 
 ## 🛠️ Built with
 - HTML
 - CSS
 - JavaScript
 
-***
+
 ## 🎨 Designed with
 - Designed on Photoshop
 - Colour pallete from Adobe Color
 
-***
+
+## 🐛 Bugs
+- When winner is called with empty cells remaining, those cells still have a click event listener
+- Upon re-setting the game through the CTA's, some O's style color turns white as opposed to staying beige
+- Cannot close gap between Player One and Player Two flex box
+
+## :pencil2: Planned future edits
+- Fix above bugs
+- Add user names where player one and player two box is
+- Add scores
+- Amend JS script to be scalable
+- Add game option for a 6x6 board
+- Option to vs bot
+
 ## 🌱 Original Mockup (before coding)
-A minor side-project, this mockup was rendered purely based on aethetics.
+This mockup was rendered purely based on aethetics.
 
-I wanted to see how closely I could re-create this without taking *how* I would code into consideration.
-
-![](/image/tictactoe/tictactoe-mockup-main.jpg)
+![](https://github.com/TypeSammy/tictactoe/blob/main/tictactoe-mockup-main.jpg)
 
 ***
 
 ## 🌟 Show your support
 Give this a star to show your support!
+
+## 📬 Contact me on
+- [LinkedIn](https://www.linkedin.com/in/samantha-gold-90b939a9/)
+- [E-mail](mailto:typesammy@gmail.com)
