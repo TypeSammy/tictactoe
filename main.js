@@ -17,8 +17,6 @@ const leftBadge = document.querySelector(".playerOneBadge")
 const rightBadge = document.querySelector(".playerTwoBadge")
 
 
-
-
 // looping through all cells to add click event..
 for (let i = 0; i < allCellElement.length; i++) {
   // assigning DOM elements to variables...
@@ -32,12 +30,11 @@ for (let i = 0; i < allCellElement.length; i++) {
 
 
   // Event listener added for all cells + game functions
-  allCellElement[i].addEventListener("click", gameStart, {once: true})
+  allCellElement[i].addEventListener("click", gameStart, { once: true })
 
   function gameStart(event) {
     // Switch between players + add to turn count...
     event.target.textContent = playersTurn
-
 
     if (turnCount % 2 === 0) {
       playersTurn = playerTwo
@@ -54,9 +51,6 @@ for (let i = 0; i < allCellElement.length; i++) {
       rightBadge.style.visibility = "hidden"
     }
 
-
-
-
     // function to get the values from rows
     function cellValues(rowElements) {
       let allValues = []
@@ -65,6 +59,7 @@ for (let i = 0; i < allCellElement.length; i++) {
       }
       return allValues
     }
+
     // storing values of all cells, rows and columns
     let allRowValues = cellValues(allCellElement)
     let row1Values = cellValues(row1Elements)
@@ -73,10 +68,6 @@ for (let i = 0; i < allCellElement.length; i++) {
     let column1Values = cellValues(column1Elements)
     let column2Values = cellValues(column2Elements)
     let column3Values = cellValues(column3Elements)
-
-
-
-
 
 
     // function to return true if win condition has been met
@@ -141,14 +132,11 @@ for (let i = 0; i < allCellElement.length; i++) {
         || column3check) {
         winConditionMet = true
       }
-
       return winConditionMet
     }
-
     let winner = winCondition()
 
-    // loop to change DOM elements based on end game results
-
+    // calling the gameOver function and amending the textContent based on the end game conditon
     if (winner || turnCount === allCellElement.length) {
       gameOver()
     }
@@ -163,6 +151,8 @@ for (let i = 0; i < allCellElement.length; i++) {
     }
 
 
+    // function to remove red badges and player information and display a pop-up.
+    // attempt at removing event listener as well
     function gameOver() {
       popup.style.visibility = "visible"
       gameActiveInfo.style.visibility = "hidden"
@@ -170,41 +160,9 @@ for (let i = 0; i < allCellElement.length; i++) {
       leftBadge.style.visibility = "hidden"
 
       for (let i = 0; i < allCellElement.length; i++) {
-      return allCellElement[i].removeEventListener("click", gameStart, {once: true})
+        return allCellElement[i].removeEventListener("click", gameStart, { once: true })
       }
-      
     }
-
-
-
-
-
-
-
-
-
-
-
-    // for (let i = 0; i < allCellElement.length; i++) {
-    //   if (winner) {
-    //     rightBadge.style.visibility = "hidden"
-    //     leftBadge.style.visibility = "hidden"
-    //     popup.style.visibility = "visible"
-    //     gameActiveInfo.style.visibility = "hidden"
-    //     if (playersTurn === playerOne) {
-    //       popupText.textContent = "Player two wins!"
-    //     } else if (playersTurn === playerTwo) {
-    //       popupText.textContent = "Player one wins!"
-    //     }
-    //   } else if (turnCount === allCellElement.length) {
-    //     popupText.textContent = "It's a draw!"
-    //     popup.style.visibility = "visible"
-    //     gameActiveInfo.style.visibility = "hidden"
-    //     rightBadge.style.visibility = "hidden"
-    //     leftBadge.style.visibility = "hidden"
-    //   }
-    // } 
-
 
 
 
@@ -222,49 +180,8 @@ for (let i = 0; i < allCellElement.length; i++) {
         popup.style.visibility = "hidden"
         gameActiveInfo.style.visibility = "visible"
       }
-      allCellElement[i].addEventListener("click", gameStart, {once: true})
+      allCellElement[i].addEventListener("click", gameStart, { once: true })
     }
 
   }
 }
-
-
-
-
-
-
-/*
-for (let i = 0; i < test.length; i++) {
-let firstNum = test[0]
-if (firstNum === test[i].length) {
-console.log('true')
-} else {
-console.log('false')
-}
-}
-*/
-
-  // function to switch between players based on even or odd operators
-
-  // function to go through all the cells and return the values
-  // values get stored in an array?
-
-  // function to go to go through the returned cell values (array) and compare
-  // -- assume comparison starts true
-  // -- loop through and compare to:
-  // -- win scenario if playerOne(even) || playerTwo(odd) 
-  // -- ????
-  // -- else draw
-
-// in order to win:
-// "0","1","2",  "3","4","5",  "6","7","8"
-
-
-
-// let results = [
-//   0, 1, 2,
-//   3, 4, 5,
-//   6, 7, 8
-// ]
-
-// 0,0,0,  0,0,0,  0,0,0
