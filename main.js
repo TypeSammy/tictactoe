@@ -5,7 +5,6 @@ const playerTwo = "o"
 let turnCount = 0
 let playersTurn = playerOne
 
-
 // putting all cells into a DOM element...
 const allCellElement = document.querySelectorAll(".cell")
 const newGameBtn = document.getElementById("newGameBtn")
@@ -23,7 +22,6 @@ const rightBadge = document.querySelector(".playerTwoBadge")
 // looping through all cells to add click event..
 for (let i = 0; i < allCellElement.length; i++) {
   // assigning DOM elements to variables...
-  const maxCells = allCellElement.length
   const row1Elements = document.querySelectorAll(".row1")
   const row2Elements = document.querySelectorAll(".row2")
   const row3Elements = document.querySelectorAll(".row3")
@@ -47,13 +45,13 @@ for (let i = 0; i < allCellElement.length; i++) {
       playersTurnMessage.textContent = "Now Player two's turn"
       leftBadge.style.visibility = "hidden"
       rightBadge.style.visibility = "visible"
+      allCellElement[i].style.color = "rgb(237,237,237)"
     } else {
       turnCount++
       playersTurn = playerOne
       playersTurnMessage.textContent = "It's Player one's turn"
       leftBadge.style.visibility = "visible"
       rightBadge.style.visibility = "hidden"
-
     }
 
 
@@ -110,7 +108,6 @@ for (let i = 0; i < allCellElement.length; i++) {
         }
       }
 
-
       // if statement to compare left diagonal values
       if (allRowValues[0] != "") {
         if (allRowValues[0] === allRowValues[4]) {
@@ -146,40 +143,70 @@ for (let i = 0; i < allCellElement.length; i++) {
       }
 
       return winConditionMet
-
-
     }
-
-
-
-
-
-
 
     let winner = winCondition()
 
     // loop to change DOM elements based on end game results
-    for (let i = 0; i < maxCells; i++) {
-      if (winner === true) {
-        rightBadge.style.visibility = "hidden"
-        leftBadge.style.visibility = "hidden"
-        if (playersTurn === playerOne) {
-          popupText.textContent = "Player two wins!"
-          popup.style.visibility = "visible"
-          gameActiveInfo.style.visibility = "hidden"
-        } else if (playersTurn === playerTwo) {
-          popupText.textContent = "Player one wins!"
-          popup.style.visibility = "visible"
-          gameActiveInfo.style.visibility = "hidden"
-        }
-      } else if (turnCount === maxCells) {
-        rightBadge.style.visibility = "hidden"
-        leftBadge.style.visibility = "hidden"
-        popupText.textContent = "It's a draw!"
-        popup.style.visibility = "visible"
-        gameActiveInfo.style.visibility = "hidden"
-      }
+
+    if (winner || turnCount === allCellElement.length) {
+      gameOver()
     }
+    if (winner) {
+      if (playersTurn === playerOne) {
+        popupText.textContent = "Player two wins!"
+      } else if (playersTurn === playerTwo) {
+        popupText.textContent = "Player one wins!"
+      }
+    } else if (turnCount === allCellElement.length) {
+      popupText.textContent = "It's a draw!"
+    }
+
+
+    function gameOver() {
+      popup.style.visibility = "visible"
+      gameActiveInfo.style.visibility = "hidden"
+      rightBadge.style.visibility = "hidden"
+      leftBadge.style.visibility = "hidden"
+
+      for (let i = 0; i < allCellElement.length; i++) {
+      return allCellElement[i].removeEventListener("click", gameStart, { once: true })
+      }
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
+    // for (let i = 0; i < allCellElement.length; i++) {
+    //   if (winner) {
+    //     rightBadge.style.visibility = "hidden"
+    //     leftBadge.style.visibility = "hidden"
+    //     popup.style.visibility = "visible"
+    //     gameActiveInfo.style.visibility = "hidden"
+    //     if (playersTurn === playerOne) {
+    //       popupText.textContent = "Player two wins!"
+    //     } else if (playersTurn === playerTwo) {
+    //       popupText.textContent = "Player one wins!"
+    //     }
+    //   } else if (turnCount === allCellElement.length) {
+    //     popupText.textContent = "It's a draw!"
+    //     popup.style.visibility = "visible"
+    //     gameActiveInfo.style.visibility = "hidden"
+    //     rightBadge.style.visibility = "hidden"
+    //     leftBadge.style.visibility = "hidden"
+    //   }
+    // } 
+
+
+
 
     // game resets via two buttons and re-adds event listener
     ggBtn.addEventListener("click", reset)
@@ -197,10 +224,6 @@ for (let i = 0; i < allCellElement.length; i++) {
       }
       allCellElement[i].addEventListener("click", gameStart, { once: true })
     }
-
-
-
-
 
   }
 }
