@@ -1,5 +1,13 @@
 # Tic Tac Toe - JavaScript
 A simple two player game on a 3x3 board.
+
+***
+
+## 📸 Screenshot
+Closely resembles the original mockup
+
+![](/image/tictactoe/tictactoe-screenshot.jpg)
+
 ***
 
 ## 🛠️ Built with
@@ -14,16 +22,11 @@ A simple two player game on a 3x3 board.
 
 ***
 ## 🌱 Original Mockup (before coding)
-This mockup was rendered purely based on aethetics, and wanting to see how close I could re-create it on CSS.
+A minor side-project, this mockup was rendered purely based on aethetics.
 
-![alt text](tictactoe/tictactoe-mockup-main.jpg)
+I wanted to see how closely I could re-create this without taking *how* I would code into consideration.
 
-***
-
-## Screenshot
-Closely resembles the original mockup
-
-![alt text](tictactoe/tictactoe-screenshot.jpg)
+![](/image/tictactoe/tictactoe-mockup-main.jpg)
 
 ***
 
