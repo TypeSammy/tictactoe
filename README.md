@@ -2,14 +2,6 @@
 A simple two player game on a 3x3 board.
 
 
-
-## 📸 Screenshot
-Closely resembles the original mockup.
-
-![](https://github.com/TypeSammy/tictactoe/blob/main/tictactoe-screenshot.jpg)
-
-
-
 ## 🛠️ Built with
 - HTML
 - CSS
@@ -26,7 +18,7 @@ Closely resembles the original mockup.
 - Upon re-setting the game through the CTA's, some O's style color turns white as opposed to staying beige
 - Cannot close gap between Player One and Player Two flex box
 
-## :pencil2: Planned future edits
+## 🌱  Planned future edits
 - Fix above bugs
 - Add user names where player one and player two box is
 - Add scores
@@ -34,10 +26,11 @@ Closely resembles the original mockup.
 - Add game option for a 6x6 board
 - Option to vs bot
 
-## 🌱 Original Mockup (before coding)
-This mockup was rendered purely based on aethetics.
+## 📸 Screenshot
+Closely resembles the original mockup.
 
-![](https://github.com/TypeSammy/tictactoe/blob/main/tictactoe-mockup-main.jpg)
+![](https://github.com/TypeSammy/tictactoe/blob/main/tictactoe-screenshot.png)
+
 
 ***
 
