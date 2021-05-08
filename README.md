@@ -26,6 +26,7 @@ A simple two player game on a 3x3 board.
 ## 🐛 Bugs
 - Cannot close gap between Player One and Player Two flex box
 
+
 ## 🌱  Future updates
 - Add user names where player one and player two box is
 - Add scores
@@ -39,6 +40,15 @@ Closely resembles the original mockup.
 ![](https://github.com/TypeSammy/tictactoe/blob/main/tictactoe-screenshot.png)
 
 ***
+
+## 💫 My experience
+I found that my biggest challenge which i still have not achieved, is to write a scalable win condition.
+
+My second biggest challenge was to overlay the end game "pop up" to appear on top of the grid, and have instead opted to overlay it on top of the game information.
+
+I wanted to keep this game simple however have plans on adding additional features in the future.
+
+Overall i found this project challenging but very enjoyable.
 
 ## 🌟 Show your support
 Give this a star to show your support!
