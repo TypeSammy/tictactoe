@@ -12,6 +12,9 @@ A simple two player game on a 3x3 board.
 - Designed on Photoshop
 - Colour pallete from Adobe Color
 
+## 👾 Try it out
+- [Play the game](https://typesammy.github.io/tictactoe/)
+
 
 ## 🐛 Bugs
 - Cannot close gap between Player One and Player Two flex box
@@ -28,7 +31,6 @@ A simple two player game on a 3x3 board.
 Closely resembles the original mockup.
 
 ![](https://github.com/TypeSammy/tictactoe/blob/main/tictactoe-screenshot.png)
-
 
 ***
 
