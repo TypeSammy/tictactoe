@@ -46,12 +46,12 @@ I found that my biggest challenge which i still have not achieved, is to write a
 
 My second biggest challenge was to overlay the end game "pop up" to appear on top of the grid, and have instead opted to overlay it on top of the game information.
 
-Key learning from this project was to keep functions separated
+Key learning from this project was to keep functions separated.
 
-Overall i found this project challenging but very enjoyable.
+Overall i found this project challenging and very enjoyable at the same time.
 
 ## 🌟 Show your support
-Give this a star to show your support!
+Give this a star to show your support.
 
 ## 📬 Contact me on
 - [LinkedIn](https://www.linkedin.com/in/samantha-gold-90b939a9/)
