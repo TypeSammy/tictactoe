@@ -12,15 +12,21 @@ A simple two player game on a 3x3 board.
 - Designed on Photoshop
 - Colour pallete from Adobe Color
 
+## 📐 Planning
+- Created pseudocode
+- Researched other Tic Tac Toe games
+- Researched basic mobile games
+- Researched colour palettes
+- Designed a mockup
+- Created skeleton code
+
 ## 👾 Try it out
 - [Play the game](https://typesammy.github.io/tictactoe/)
-
 
 ## 🐛 Bugs
 - Cannot close gap between Player One and Player Two flex box
 
-## 🌱  Planned future edits
-- Fix above bugs
+## 🌱  Future updates
 - Add user names where player one and player two box is
 - Add scores
 - Amend JS script to be scalable
