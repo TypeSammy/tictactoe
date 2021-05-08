@@ -14,8 +14,6 @@ A simple two player game on a 3x3 board.
 
 
 ## 🐛 Bugs
-- When winner is called with empty cells remaining, those cells still have a click event listener
-- Upon re-setting the game through the CTA's, some O's style color turns white as opposed to staying beige
 - Cannot close gap between Player One and Player Two flex box
 
 ## 🌱  Planned future edits
