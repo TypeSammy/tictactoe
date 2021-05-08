@@ -10,7 +10,7 @@ body {
 }
 header {
   display: grid;
-  grid-template-rows: 130px 160px;
+  grid-template-rows: 120px 160px;
   margin-bottom: 10px;
   justify-items: center;
 }
