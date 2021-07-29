@@ -193,8 +193,10 @@ button:hover {
   }
   main div {
     font-size: 6em;
+    border: 5px solid rgb(86,86,77);
   }
   button {
+    margin-top: 3em;
     font-size: 1.1em;
   }
   #popup {
