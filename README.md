@@ -44,7 +44,7 @@ Closely resembles the original mockup.
 ## 💫 My experience
 I found that my biggest challenge which i still have not achieved, is to write a scalable win condition.
 
-My second biggest challenge was to overlay the end game "pop up" to appear on top of the grid, and have instead opted to overlay it on top of the game information.
+My second biggest challenge was to overlay the end game "pop up" to appear on top of the grid, and have instead opted to overlay it on top of the game information, above the grid.
 
 Key learning from this project was to keep functions separated.
 

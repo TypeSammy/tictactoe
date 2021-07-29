@@ -9,7 +9,7 @@ let playersTurn = playerOne
 const allCellElement = document.querySelectorAll(".cell")
 const newGameBtn = document.getElementById("newGameBtn")
 const ggBtn = document.getElementById("closePopupBtn")
-let playersTurnMessage = document.querySelector("h2")
+const playersTurnMessage = document.querySelector("h2")
 const gameActiveInfo = document.querySelector(".gameActiveInfo")
 const popup = document.querySelector("#popup")
 const popupText = document.querySelector("#popupText")
@@ -24,12 +24,11 @@ const column3Elements = document.querySelectorAll(".column3")
 
 
 // looping through all cells to add click event..
-for (let i = 0; i < allCellElement.length; i++) {
-  allCellElement[i].addEventListener("click", gameStart, { once: true })
-}
+allCellElement.forEach(cell => {
+  cell.addEventListener("click", gameStart, { once: true })
+})
 
 function gameStart(event) {
-
   // Switch between players + add to turn count
   event.target.textContent = playersTurn
 
@@ -50,7 +49,7 @@ function gameStart(event) {
   }
 
   // calling win condition function within gameStart function
-  let winner = winCondition()
+  const winner = winCondition()
   // calling the gameOver function and amending the textContent based on the end game conditon
   if (winner || turnCount === allCellElement.length) {
     gameOver()
@@ -70,9 +69,9 @@ function gameStart(event) {
 // function to get the values from rows
 function cellValues(rowElements) {
   let allValues = []
-  for (let i = 0; i < rowElements.length; i++) {
-    allValues.push(rowElements[i].textContent)
-  }
+  rowElements.forEach(row => {
+    allValues.push(row.textContent)
+  })
   return allValues
 }
 
@@ -158,11 +157,10 @@ function gameOver() {
   rightBadge.style.visibility = "hidden"
   leftBadge.style.visibility = "hidden"
 
-  for (let i = 0; i < allCellElement.length; i++) {
-    allCellElement[i].removeEventListener("click", gameStart)
-  }
+  allCellElement.forEach(cell => {
+    cell.removeEventListener("click", gameStart)
+  })
 }
-
 
 // two event listener for reset function
 ggBtn.addEventListener("click", reset)
@@ -172,15 +170,14 @@ newGameBtn.addEventListener("click", reset)
 function reset() {
   turnCount = 0
   playersTurn = playerOne
-  for (let i = 0; i < allCellElement.length; i++) {
-    allCellElement[i].textContent = ""
-    playersTurnMessage.textContent = "Player one's turn"
-    leftBadge.style.visibility = "visible"
-    rightBadge.style.visibility = "hidden"
-    popup.style.visibility = "hidden"
-    gameActiveInfo.style.visibility = "visible"
-    allCellElement[i].addEventListener("click", gameStart, { once: true })
-  }
+  playersTurnMessage.textContent = "Player one's turn"
+  leftBadge.style.visibility = "visible"
+  rightBadge.style.visibility = "hidden"
+  popup.style.visibility = "hidden"
+  gameActiveInfo.style.visibility = "visible"
+
+  allCellElement.forEach(cell => {
+    cell.textContent = ""
+    cell.addEventListener("click", gameStart, { once: true })
+  })
 }
-
-
