@@ -14,6 +14,7 @@ header {
   grid-template-rows: 0.1fr auto;
   justify-items: center;
   padding-bottom: 1.3em;
+  justify-content: center;
 }
 h1 {
   font-size: 4em;
@@ -114,7 +115,7 @@ h3 {
   grid-template-columns: 8em 8em 8em;
   grid-template-rows: 8em 8em 8em;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 4em;
 }
 main div {
   width: 100%;
@@ -149,7 +150,7 @@ button {
   margin-bottom: 3em;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
-  font-size: 17pt;
+  font-size: 1.3em;
   color: rgb(86,86,77);
   background-color: rgb(216,216,216);
   padding: 13px;
@@ -170,4 +171,41 @@ footer {
 }
 button:hover {
   background-color: rgb(203, 203, 203);
+}
+
+@media only screen and (max-width: 505px) {
+  body {
+    width: 70%;
+  }
+  header {
+    padding-top: 1.5em;
+  }
+  h1 {
+    font-size: 2.85em;
+  }
+  h3 {
+    font-size: 0.72em;
+  }
+  #main-game {
+    grid-template-columns: 6em 6em 6em;
+    grid-template-rows: 6em 6em 6em;
+    margin-top: 0.5em;
+  }
+  main div {
+    font-size: 6em;
+  }
+  button {
+    font-size: 1.1em;
+  }
+  #popup {
+    font-size: 1.3em;
+    width: 70%;
+  }
+  footer {
+    padding: 2em;
+    font-size: 0.9em;
+  }
+  .playerOneBadge, .playerTwoBadge {
+    padding: 0.6em;
+  }
 }
