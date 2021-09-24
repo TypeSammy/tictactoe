@@ -54,5 +54,5 @@ Overall i found this project challenging and very enjoyable at the same time.
 Give this a star to show your support.
 
 ## 📬 Contact me on
-- [LinkedIn](https://www.linkedin.com/in/samantha-gold-90b939a9/)
+- [LinkedIn](https://www.linkedin.com/in/samantha-gold-dev/)
 - [E-mail](mailto:typesammy@gmail.com)
